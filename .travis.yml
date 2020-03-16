@@ -27,9 +27,9 @@ jobs:
 #    dist: trusty
 #    python: 3.6
 #    env: PANDAS=0.23.4
-  - stage: test
-    dist: trusty
-    python: 3.6
+#  - stage: test
+#    dist: trusty
+#    python: 3.6
 #  - stage: test
 #    dist: xenial
 #    env: PANDAS=0.25.3
@@ -61,7 +61,7 @@ jobs:
 #        --slack_channel=notifications-great_expectations tests/
 #    after_success:
 #      - python --version
-  - stage: experimental
+  - stage: test
     os: osx
     osx_image: xcode9.4
     name: "Python 3.6.5 on macOS"
