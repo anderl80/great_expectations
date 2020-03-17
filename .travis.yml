@@ -66,12 +66,15 @@ jobs:
     osx_image: xcode9.4
     name: "Python 3.6.5 on macOS"
     language: bash
-#    addons:
-#      postgresql: '9.4' looks like 10 is the only one on travis?
-    services:
-      - postgresql
     before_install:
       - python3 --version
+      # https://chartio.com/resources/tutorials/how-to-start-postgresql-server-on-mac-os-x/
+      - brew install postgres
+      - mkdir -p ~/Library/LaunchAgents || true
+      - ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+      - launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+      # https://stackoverflow.com/questions/15301826/psql-fatal-role-postgres-does-not-exist
+      - /usr/local/opt/postgres/bin/createuser -s postgres
     install:
       - pip3 install numpy scipy
       - if [ -z "$PANDAS" ]; then pip3 install pandas; else pip3 install pandas==$PANDAS; fi
