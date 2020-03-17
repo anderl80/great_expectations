@@ -70,11 +70,13 @@ jobs:
       - python3 --version
       # https://chartio.com/resources/tutorials/how-to-start-postgresql-server-on-mac-os-x/
       - which postgres
-      - ls ~/Library/LaunchAgents
-      - mkdir -p ~/Library/LaunchAgents || true
-      - ls /usr/local/opt/postgresql/*.plist
-      - ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
-      - launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+      # https://dba.stackexchange.com/questions/75214/postgresql-not-running-on-mac
+      - brew services start postgresql
+      # - ls ~/Library/LaunchAgents
+      # - mkdir -p ~/Library/LaunchAgents || true
+      # - ls /usr/local/opt/postgresql/*.plist
+      # - ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+      # - launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
       # https://stackoverflow.com/questions/15301826/psql-fatal-role-postgres-does-not-exist
       - /usr/local/opt/postgres/bin/createuser -s postgres
     install:
