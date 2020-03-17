@@ -71,6 +71,7 @@ jobs:
       # https://chartio.com/resources/tutorials/how-to-start-postgresql-server-on-mac-os-x/
       - which postgres
       # https://dba.stackexchange.com/questions/75214/postgresql-not-running-on-mac
+      - brew update
       - brew services start postgresql
       # - ls ~/Library/LaunchAgents
       # - mkdir -p ~/Library/LaunchAgents || true
