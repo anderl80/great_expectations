@@ -6,6 +6,8 @@ develop
 * DataDocs: Expectation Suite name on Validation Result pages now link to Expectation Suite page
 * `great_expectations init`: cli now asks user if csv has header when adding a Spark Datasource with csv file
 * validate result dict when instantiating an ExpectationValidationResult (`#1133 <https://github.com/great-expectations/great_expectations/issues/1133>`_)
+* New CLI command: `tap new` that generates an executable python file to expedite deployments.
+* bugfix in TableBatchKwargsGenerator docs
 
 
 0.9.5
